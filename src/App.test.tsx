@@ -19,7 +19,7 @@ describe("Tests Expenses", () => {
         const newExpenseName = screen.getByText("New Expense");
         const newExpenseCost = screen.getByText("$1000");
 
-        expect(newExpenseName).toBeInTheDocument;
+        expect(newExpenseName).toBeInTheDocument();
         expect(newExpenseCost).toBeInTheDocument();
     });
 
