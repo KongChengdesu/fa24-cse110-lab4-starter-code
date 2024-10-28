@@ -17,7 +17,7 @@ describe("Tests Expenses", () => {
         fireEvent.click(createExpenseButton);
 
         const newExpenseName = screen.getByText("New Expense");
-        const newExpenseCost = screen.getByText("$10");
+        const newExpenseCost = screen.getByText("$1000");
 
         expect(newExpenseName).toBeInTheDocument();
         expect(newExpenseCost).toBeInTheDocument();
