@@ -18,4 +18,5 @@ jobs: # the things being executed
        working-directory: ./server
        run: npm install
      - name: Unit Test
+       working-directory: ./client
        run: npm test # the actual testing line
