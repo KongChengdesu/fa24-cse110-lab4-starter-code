@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import EditBudgetForm from "./EditBudgetForm";
 import ShowBudget from "./ShowBudget";
+import { fetchBudget, updateBudget } from "../../utils/budget-utils";
 
 const Budget = () => {
 
@@ -11,6 +12,14 @@ const Budget = () => {
 
   const [ newBudget, setNewBudget ] = useState(budget);
 
+  useEffect(() => {
+    loadBudget();
+  }, []);
+
+  async function loadBudget() {
+    setBudget(await fetchBudget());
+  }
+
   const handleEditClick = () => {
     if(editing) {
 
@@ -19,6 +28,7 @@ const Budget = () => {
         return;
       }
 
+      updateBudget(newBudget);
       setBudget(newBudget);
 
     }
